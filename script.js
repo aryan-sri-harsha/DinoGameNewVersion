@@ -1,6 +1,8 @@
 import { updateGround, setupGround } from "./ground.js"
 import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js"
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js"
+import SetHighScore, { getHighScore } from "./highScore.js";
+// console.log(getHighScore());
 
 const WORLD_WIDTH = 100
 const WORLD_HEIGHT = 30
@@ -72,9 +74,11 @@ function handleStart() {
 
 function handleLose() {
   setDinoLose()
+  SetHighScore(parseInt(score));
   setTimeout(() => {
     document.addEventListener("keydown", handleStart, { once: true })
     startScreenElem.classList.remove("hide")
+    getHighScore();
   }, 100)
 }
 
@@ -89,3 +93,5 @@ function setPixelToWorldScale() {
   worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
   worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
 }
+window.onload = getHighScore();
+

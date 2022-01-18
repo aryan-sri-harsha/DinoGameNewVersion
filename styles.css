@@ -18,7 +18,7 @@ body {
 
 .score {
   position: absolute;
-  font-size: 3vmin;
+  font-size: 10vmin;
   right: 1vmin;
   top: 1vmin;
 }
@@ -56,4 +56,14 @@ body {
   left: calc(var(--left) * 1%);
   height: 30%;
   bottom: 0;
+}
+.prevScore{
+
+}
+.HighScore{
+  position: absolute;
+  font-size: 5vmin;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
